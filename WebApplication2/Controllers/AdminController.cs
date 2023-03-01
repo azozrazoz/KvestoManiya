@@ -1,32 +1,29 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
-using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
-    public class RoomController : Controller
+    public class AdminController : Controller
     {
-        private RoomsContext db = new RoomsContext();
-        // GET: RoomController
+        // GET: AdminController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: RoomController/Details/5
+        // GET: AdminController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: RoomController/Create
+        // GET: AdminController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: RoomController/Create
+        // POST: AdminController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -41,13 +38,13 @@ namespace WebApplication2.Controllers
             }
         }
 
-        // GET: RoomController/Edit/5
+        // GET: AdminController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: RoomController/Edit/5
+        // POST: AdminController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -62,13 +59,13 @@ namespace WebApplication2.Controllers
             }
         }
 
-        // GET: RoomController/Delete/5
+        // GET: AdminController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: RoomController/Delete/5
+        // POST: AdminController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
@@ -81,16 +78,6 @@ namespace WebApplication2.Controllers
             {
                 return View();
             }
-        }
-
-        public ActionResult ListRooms(string? titleRoom)
-        {
-            if (titleRoom != null)
-            {
-                var room = db.Rooms.Where(c => c.Title == titleRoom).FirstOrDefault();
-                return View(room);
-            }
-            return Redirect("Index");
         }
     }
 }
